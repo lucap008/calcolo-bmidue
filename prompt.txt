@@ -1,0 +1,55 @@
+crea una pagina html che calcola il bmi dato il nome, altezza in cm e peso in kg attraverso un form con un campo per ogni richiesta, 
+ognuno con la sua label. poi un tasto calcola che, appunto, effettua il calcolo.
+per quanto riguarda il css della pagina, innanzitutto il colore sfondo deve essere il seguente: #F1F3F5, 
+mentre il testo #1F2328. Il font deve essere sans-serif. il form deve essere contenuto in una card bianca larga 360px, padding 24ox, 
+angoli arrotondati 12px e un'ombra leggera. i campi del form devono distare verticalmente tra loro 16px. il pulsante deve avere un colore 
+di sfondo #1F2328, testo bianco, angoli 8px e larghezza piena.  ti allego una parte di codice da me già fatta: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #f1f3f5;
+    }
+    main{
+        padding: 0 60px;
+    }
+    .card{
+        background-color: white;
+        padding: 24px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <main>
+        <h1>Calcola BMI</h1>
+        <div class="card">
+            <form method="post" action="calcolamento-bmi.php">
+                <label for="nome">Nome</label><br>
+                <input type="text" id="nome" value="Luca"><br>
+                <label for="peso">Peso (kg) </label><br>
+                <input type="number" id="peso" value="70"><br>
+                <label for="altezza">Altezza (kg) </label><br>
+                <input type="number" id="altezza" value="178"><br>
+                <button type="submit">Calcola</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
+quando premo su calcola, una seconda pagina html fatta tramite php deve mostrare il risultato del bmi ottenuto tramite la formula 
+peso/(altezza in m)^2. il risultato deve essere mostrato con una card con nome, dati inseriti e il bmi con 2 decimali (grande, 48px), 
+padding su e giù di 16px e la fascia n minuscolo, la card ha due classi: "card" + la classe della fascia, che può essere .sottopeso se 
+il bmi è <18,5, .normopeso se è compreso tra 18,5 e 24,9, .sovrappeso se è compreso tra 25 e 29,9 e .obesità se è >30. se sottopeso, 
+la card deve avere uno sfondo #E3EEF9 e bordo #2F6FB3, se normopeso lo sfondo #E3F4E6, bordo #256D34, se sovrappeso 
+sfondo #FCEBD7 e bordo #9A4F06 e se è obeso lo sfondo deve essere #FBE2E2 con bordo #B32D2D. il bordo della card deve 
+essere di 3px, la scritta della fascia usa il colore del bordo di ogni classe. per quanto riguarda il css è uguale alla prima pagina 
+html, nei sensi di contenuto centrato (anche nella card), font, sfondo e caratteristiche della card. nella card, il nome deve essere 
+visualizzato in grassetto nella card sopra.
+scrivere nome: nome, ma scrivi solo il nome. 8px giù nella stessa linea devono stare il peso inserito e l'altezza, nel modello 
+peso nkg · altezza ncm (scrivendo ovviamente le parole Peso e Altezza accanto ai rispettivi valori).
+ il titolo sopra la card deve essere "Il tuo BMI". la scritta sottopeso, normopeso, sovrappeso e obesità devono 
+ essere in maiuscolo e in grassetto. sotto la card con distanza 24px ci deve essere un tasto calcola di nuovo, che riporta alla prima pagina html dove si inseriscono i dati. esso non deve essere un bottone, ma una semplice frase "Calcola di nuovo" con un link allegato che riporta, appunto, alla prima pagina.
