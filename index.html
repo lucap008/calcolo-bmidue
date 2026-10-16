@@ -9,24 +9,18 @@
             background-color: #F1F3F5;
             color: #1F2328;
             font-family: sans-serif;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            margin: 0;
         }
-
         main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
         }
-
         h1 {
             margin-bottom: 20px;
-            font-size: 24px;
         }
-
         .card {
             background-color: white;
             width: 360px;
@@ -34,34 +28,34 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
+            text-align: left;
         }
-
-        .campo {
-            margin-bottom: 16px;
-        }
-
         label {
-            display: block;
-            margin-bottom: 6px;
+            font-weight: 500;
         }
-
         input {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            margin-top: 4px;
+            margin-bottom: 16px; /* Distanza verticale di 16px sotto ogni input */
             border: 1px solid #ccc;
             border-radius: 6px;
             box-sizing: border-box;
+            font-size: 14px;
         }
-
         button {
-            width: 100%;
+            margin-top: 4px;
             background-color: #1F2328;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
+            width: 100%;
             font-size: 16px;
             cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -69,21 +63,15 @@
     <main>
         <h1>Calcola BMI</h1>
         <div class="card">
-            <form method="post" action="calcolo-bmidue.php">
-                <div class="campo">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" value="Luca">
-                </div>
+            <form method="post" action="calcolamento-bmi.php">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" value="Luca" required>
                 
-                <div class="campo">
-                    <label for="peso">Peso (kg)</label>
-                    <input type="number" id="peso" name="peso" value="70">
-                </div>
+                <label for="peso">Peso (kg)</label>
+                <input type="number" id="peso" name="peso" value="70" step="any" required>
                 
-                <div class="campo">
-                    <label for="altezza">Altezza (cm)</label>
-                    <input type="number" id="altezza" name="altezza" value="178">
-                </div>
+                <label for="altezza">Altezza (cm)</label>
+                <input type="number" id="altezza" name="altezza" value="178" step="any" required>
                 
                 <button type="submit">Calcola</button>
             </form>
