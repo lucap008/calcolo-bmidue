@@ -10,7 +10,6 @@
             color: #1F2328;
             font-family: sans-serif;
             margin: 0;
-            padding: 40px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -37,18 +36,13 @@
             box-sizing: border-box;
         }
 
-        .form-group {
+        .campo {
             margin-bottom: 16px;
-        }
-
-        .form-group:last-child {
-            margin-bottom: 0;
         }
 
         label {
             display: block;
             margin-bottom: 6px;
-            font-weight: 500;
         }
 
         input {
@@ -57,7 +51,6 @@
             border: 1px solid #ccc;
             border-radius: 6px;
             box-sizing: border-box;
-            font-size: 14px;
         }
 
         button {
@@ -69,11 +62,6 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 8px;
-        }
-
-        button:hover {
-            opacity: 0.9;
         }
     </style>
 </head>
@@ -81,20 +69,20 @@
     <main>
         <h1>Calcola BMI</h1>
         <div class="card">
-            <form method="post" action="calcolamento-bmi.php">
-                <div class="form-group">
+            <form method="post" action="calcolo-bmidue.php">
+                <div class="campo">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" value="Luca" required>
+                    <input type="text" id="nome" name="nome" value="Luca">
                 </div>
                 
-                <div class="form-group">
+                <div class="campo">
                     <label for="peso">Peso (kg)</label>
-                    <input type="number" id="peso" name="peso" value="70" required>
+                    <input type="number" id="peso" name="peso" value="70">
                 </div>
                 
-                <div class="form-group">
+                <div class="campo">
                     <label for="altezza">Altezza (cm)</label>
-                    <input type="number" id="altezza" name="altezza" value="178" required>
+                    <input type="number" id="altezza" name="altezza" value="178">
                 </div>
                 
                 <button type="submit">Calcola</button>
