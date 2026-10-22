@@ -1,40 +1,52 @@
 <?php
-// Leggiamo i dati inviati dal form
-$nome = $_POST['nome'];
-$peso = $_POST['peso'];
-$altezza_cm = $_POST['altezza'];
+    $nome = "";
+    $peso = 0;
+    $altezza_cm = 0;
+    $altezza_m = 0;
+    $bmi = 0;
+    $classe_fascia = "";
+    $colore_bordo = "";
+    $colore_sfondo = "";
+    $fascia = "";
+    $bmi_formattato = "0.00";
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $nome = $_POST['nome'];
+    $peso = $_POST['peso'];
+    $altezza_cm = $_POST['altezza'];
+    // Convertiamo l'altezza da centimetri a metri
+    $altezza_m = $altezza_cm / 100;
 
-// Convertiamo l'altezza da centimetri a metri
-$altezza_m = $altezza_cm / 100;
+    // Calcolo del BMI: peso / (altezza in metri)^2
+    $bmi = $peso / ($altezza_m * $altezza_m);
 
-// Calcolo del BMI: peso / (altezza in metri)^2
-$bmi = $peso / ($altezza_m * $altezza_m);
+    // Arrotondiamo il BMI a 2 decimali
+    $bmi_formattato = number_format($bmi, 2, '.', '');
 
-// Arrotondiamo il BMI a 2 decimali
-$bmi_formattato = number_format($bmi, 2, '.', '');
-
-// Determinazione della fascia e dei relativi stili CSS (sfondo e bordo)
-if ($bmi < 18.5) {
-    $fascia = "SOTTOPESO";
-    $classe_fascia = "sottopeso";
-    $colore_sfondo = "#E3EEF9";
-    $colore_bordo = "#2F6FB3";
-} elseif ($bmi >= 18.5 && $bmi <= 24.9) {
-    $fascia = "NORMOPESO";
-    $classe_fascia = "normopeso";
-    $colore_sfondo = "#E3F4E6";
-    $colore_bordo = "#256D34";
-} elseif ($bmi >= 25 && $bmi <= 29.9) {
-    $fascia = "SOVRAPPESO";
-    $classe_fascia = "sovrappeso";
-    $colore_sfondo = "#FCEBD7";
-    $colore_bordo = "#9A4F06";
-} else {
-    $fascia = "OBESITÀ";
-    $classe_fascia = "obesita";
-    $colore_sfondo = "#FBE2E2";
-    $colore_bordo = "#B32D2D";
-}
+    // Determinazione della fascia e dei relativi stili CSS (sfondo e bordo)
+    if ($bmi < 18.5) {
+        $fascia = "SOTTOPESO";
+        $classe_fascia = "sottopeso";
+        $colore_sfondo = "#E3EEF9";
+        $colore_bordo = "#2F6FB3";
+    } elseif ($bmi >= 18.5 && $bmi <= 24.9) {
+        $fascia = "NORMOPESO";
+        $classe_fascia = "normopeso";
+        $colore_sfondo = "#E3F4E6";
+        $colore_bordo = "#256D34";
+    } elseif ($bmi >= 25 && $bmi <= 29.9) {
+        $fascia = "SOVRAPPESO";
+        $classe_fascia = "sovrappeso";
+        $colore_sfondo = "#FCEBD7";
+        $colore_bordo = "#9A4F06";
+    } else {
+        $fascia = "OBESITÀ";
+        $classe_fascia = "obesita";
+        $colore_sfondo = "#FBE2E2";
+        $colore_bordo = "#B32D2D";
+    }
+    }else{
+        // Qui vuol dire che faccio richiesta inGET (visualizo il form)
+    }
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -134,7 +146,7 @@ if ($bmi < 18.5) {
             </div>
         </div>
 
-        <a class="link-ritorno" href="index.html">Calcola di nuovo</a>
+        <a class="link-ritorno" href="index.php">Calcola di nuovo</a>
     </main>
 </body>
 </html>
